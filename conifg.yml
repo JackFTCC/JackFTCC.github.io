@@ -15,3 +15,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      css: "css.css"

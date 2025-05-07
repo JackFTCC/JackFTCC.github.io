@@ -1,0 +1,5 @@
+body {
+    background-color: #d3d3d3 !important; /* light gray */
+    box-shadow: none !important;         /* removes borders/shadows if any */
+    border: none !important;
+  }
