@@ -1,0 +1,20 @@
+title: JackThePerson
+description: My Portolio.
+url: "https://JackFTCC.github.io"
+
+remote_theme: pages-themes/merlot@v0.2.0
+
+author:
+  name: Jack Sollisch
+
+# Social links (optional)
+social_links:
+  YouTube: JackThePerson
+  Discord: JackThePerson
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
