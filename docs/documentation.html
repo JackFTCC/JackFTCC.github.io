@@ -43,7 +43,7 @@
             <div class="doc-content">
                 <section id="getting-started">
                     <h2>Getting Started</h2>
-                    <p>DND Text Adventure is a C++ console-based role-playing game that implements simplified Dungeons & Dragons mechanics. The game allows players to create characters, embark on adventures, and level up as they progress.</p>
+                    <p>DND Text Adventure is a C++ console-based role-playing game that implements simplified Dungeons & Dragons mechanics. The game allows players to create characters, and embark on adventures</p>
                     
                     <h3>Requirements</h3>
                     <ul>
@@ -107,28 +107,6 @@
                         <li><strong>Halfling</strong>: Specializes in spear combat</li>
                     </ul>
                     
-                    <h3>Leveling System</h3>
-                    <p>Characters gain experience points (XP) through gameplay. Once enough XP is accumulated, they level up and receive stat points to allocate to attributes of their choice. The XP thresholds follow a progressive curve:</p>
-                    
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Level</th>
-                                <th>XP Required</th>
-                                <th>Proficiency Bonus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>0</td><td>+2</td></tr>
-                            <tr><td>2</td><td>300</td><td>+2</td></tr>
-                            <tr><td>3</td><td>900</td><td>+2</td></tr>
-                            <tr><td>4</td><td>2,700</td><td>+2</td></tr>
-                            <tr><td>5</td><td>6,500</td><td>+3</td></tr>
-                            <tr><td>6</td><td>14,000</td><td>+3</td></tr>
-                            <!-- Additional levels omitted for brevity -->
-                        </tbody>
-                    </table>
-                    
                     <h3>Combat System</h3>
                     <p>Combat is turn-based and uses dice rolls modified by character attributes and class bonuses. The basic formula is:</p>
                     <pre>playerRoll = 2d6 + classBonuses
@@ -190,7 +168,6 @@ void saveCharacter() {
                     <p>The <code>test_scaffold.cpp</code> provides a comprehensive testing framework for the game's core mechanics. It can be used to:</p>
                     <ul>
                         <li>Create test characters with specific attributes</li>
-                        <li>Test the leveling system</li>
                         <li>Verify character saving and loading</li>
                         <li>Test the battle system</li>
                         <li>Verify the save toggle feature</li>
@@ -198,7 +175,7 @@ void saveCharacter() {
                     
                     <div class="command-line">
                         <p class="command-prompt">$ ./test_dnd create_player Warrior Fighter 3</p>
-                        <p>Created sample player: Warrior the Fighter (Level 3)</p>
+                        <p>Created sample player: Warrior the Fighter (Level 1)</p>
                         <p>Stats: STR 12, DEX 10, CON 14, INT 9, WIS 11, CHA 8</p>
                         <p>Experience: 910, Stat Points: 2</p>
                         <p>Password: test123</p>
@@ -211,7 +188,6 @@ void saveCharacter() {
                         <p>===== DND Sample Player Creator =====</p>
                         <p>Enter player name: TestWarrior</p>
                         <p>Choose a class (Fighter, Magic-User, Thief, Cleric, Elf, Dwarf, Halfling): Fighter</p>
-                        <p>Enter starting level (1-20): 5</p>
                     </div>
                     
                     <h3>Test Game</h3>
@@ -231,35 +207,6 @@ void saveCharacter() {
                     </div>
                 </section>
 
-                <section id="bug-fixes">
-                    <h2>Bug Fixes & Improvements</h2>
-                    <p>Recent improvements to the codebase include:</p>
-                    
-                    <h3>Leveling System Fix</h3>
-                    <p>Fixed a critical issue where experience points were incorrectly reset after leveling up, preventing proper character progression. Now experience is properly accumulated:</p>
-                    <pre>// Old implementation (buggy)
-if (experience >= levelTable[level - 1].xpThreshold) {
-    experience -= levelTable[level - 1].xpThreshold;
-}
-
-// New implementation (fixed)
-// IMPORTANT: DO NOT reset experience after leveling up
-// We need to keep the total XP for proper progression through levels</pre>
-                    
-                    <h3>Stat Points Calculation</h3>
-                    <p>Added proper calculation of stat points when loading characters:</p>
-                    <pre>// Calculate stat points based on level (one per level above 1)
-statPoints = level - 1;</pre>
-                    
-                    <h3>Character Creation Fix</h3>
-                    <p>Fixed an issue where characters weren't being properly saved to the character_stats.txt file when created using test tools.</p>
-                    
-                    <h3>Save Toggle Feature</h3>
-                    <p>Added a global flag to enable/disable file operations for testing purposes.</p>
-                    
-                    <h3>Testing Framework</h3>
-                    <p>Created comprehensive tools for testing game mechanics, including character creation, experience gain, and leveling.</p>
-                </section>
             </div>
         </div>
     </main>
